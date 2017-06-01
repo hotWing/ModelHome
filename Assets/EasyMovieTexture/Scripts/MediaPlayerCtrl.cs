@@ -170,7 +170,7 @@ public class MediaPlayerCtrl : MonoBehaviour
 
 	public MEDIA_SCALE m_ScaleValue;
 	public GameObject[] m_objResize = null;
-	public bool m_bLoop = false;
+	public bool m_bLoop = true;
 	public bool m_bAutoPlay = true;
 	private bool m_bStop = false;
 

@@ -8,6 +8,8 @@ public class WebBackBtn : MonoBehaviour
 {
     public GameObject loadingUI;
     public Text loadingText;
+    //public GameObject webViewObj;
+    public UniWebView webview;
     // Use this for initialization
     void Start()
     {
@@ -22,6 +24,8 @@ public class WebBackBtn : MonoBehaviour
 
     IEnumerator loadARScene()
     {
+        //webViewObj.SetActive(false);
+        webview.Hide();
         loadingUI.SetActive(true);
         AsyncOperation ao = SceneManager.LoadSceneAsync("AR");
         while (true)
