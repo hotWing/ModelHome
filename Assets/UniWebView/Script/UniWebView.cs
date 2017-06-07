@@ -896,6 +896,10 @@ public class UniWebView : MonoBehaviour {
     }
 
     void Start() {
+
+        //按分辨率设置高度
+        insets.bottom = (int)(100 / 1280.0f * Screen.height);
+
         if (loadOnStart) {
             Load();
         }

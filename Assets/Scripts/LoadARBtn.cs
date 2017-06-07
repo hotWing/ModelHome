@@ -12,9 +12,11 @@ public class LoadARBtn : MonoBehaviour {
 	void Start () {
         Button btn = GetComponent<Button>();
         btn.onClick.AddListener(btnOnClick);
-	}
-	
-	void btnOnClick() {
+
+        //srcMedia.SetSpeed(0.5f);
+    }
+
+    void btnOnClick() {
         StartCoroutine(loadARScene());
 	}
 

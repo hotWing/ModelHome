@@ -15,6 +15,7 @@ public class WebBackBtn : MonoBehaviour
     {
         Button btn = GetComponent<Button>();
         btn.onClick.AddListener(btnOnClick);
+
     }
 
     private void btnOnClick()
