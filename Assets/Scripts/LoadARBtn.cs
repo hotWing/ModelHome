@@ -1,38 +1,42 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using System.Collections;
 
 [RequireComponent(typeof(Button))]
 public class LoadARBtn : MonoBehaviour {
 
-    public GameObject loadingUI;
-    public Text loadingText;
+    public GameObject arContent;
     public MediaPlayerCtrl srcMedia;
+    public GameObject vedioContent;
 	void Start () {
         Button btn = GetComponent<Button>();
         btn.onClick.AddListener(btnOnClick);
+
+        if (!AppManager.justStarted)
+            btnOnClick();
 
         //srcMedia.SetSpeed(0.5f);
     }
 
     void btnOnClick() {
-        StartCoroutine(loadARScene());
-	}
-
-    IEnumerator loadARScene()
-    {
         srcMedia.Stop();
-        loadingUI.SetActive(true);
-        AsyncOperation ao = SceneManager.LoadSceneAsync("AR");
-
-        while(true)
-        {
-            int progress = (int)(Mathf.Clamp01((ao.progress / 0.9f)) * 100);
-            loadingText.text = progress + "%";
-            if (progress >= 100)
-                break;
-            yield return null;
-        }
+        arContent.SetActive(true);
+        vedioContent.SetActive(false);
+        //StartCoroutine(loadARScene());
     }
+
+    //IEnumerator loadARScene()
+    //{
+    //    srcMedia.Stop();
+    //    loadingUI.SetActive(true);
+    //    AsyncOperation ao = SceneManager.LoadSceneAsync("AR");
+
+    //    while(true)
+    //    {
+    //        int progress = (int)(Mathf.Clamp01((ao.progress / 0.9f)) * 100);
+    //        loadingText.text = progress + "%";
+    //        if (progress >= 100)
+    //            break;
+    //        yield return null;
+    //    }
+    //}
 }

@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class RoomSelecter : MonoBehaviour {
+public class RoomSelecter : MonoBehaviour
+{
 
     private int roomLayer = 8;
-	
-	void Update () {
+
+    void Update()
+    {
         Vector2 pos = -Vector2.one;
 #if UNITY_EDITOR
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             pos = Input.mousePosition;
         }
@@ -19,7 +21,7 @@ public class RoomSelecter : MonoBehaviour {
             pos = touch.position;
         }
 #endif
-        if(pos != -Vector2.one)
+        if (pos != -Vector2.one)
         {
             Ray ray = Camera.main.ScreenPointToRay(pos);
             RaycastHit hit;
@@ -31,5 +33,5 @@ public class RoomSelecter : MonoBehaviour {
                 SceneManager.LoadScene("Web");
             }
         }
-	}
+    }
 }
